@@ -53,10 +53,10 @@ function cleverbot.talk(text, apiKey, cStateBool)
 		else CS:setCState(json.cs) end
 		return json.output
 	elseif head.code ~= nil then
-		errcode = '!! CleverBot error: '..head.code
+		local errcode = '!! CleverBot error: '..head.code
 		return errcode
 	else
-		nilerr = '!! CleverBot error: unknown'
+		local nilerr = '!! CleverBot error: unknown'
 		return nilerr
 	end
 end
