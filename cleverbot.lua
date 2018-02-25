@@ -4,8 +4,8 @@ version = '1.0.0'
 homepage = 'https://github.com/Kogiku/cleverbot_luvit'
 description = 'Simple implementation of the CleverBot API for luvit.'
 dependencies = {
-	'creationix/coro-http'
-	'luvit/querystring'
+	'creationix/coro-http',
+	'luvit/querystring',
 	'luvit/json'
 }
 tags = {'cleverbot', 'api'}
