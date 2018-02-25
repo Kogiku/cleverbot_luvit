@@ -1,8 +1,8 @@
 --[[lit-meta
 name = 'Kogiku/cleverbot'
-version = '1.0.0'
+version = '1.0.1'
 homepage = 'https://github.com/Kogiku/cleverbot_luvit'
-description = 'Simple implementation of the CleverBot API for luvit.'
+description = 'Simple implementation of the CleverBot API for Luvit.'
 dependencies = {
 	'creationix/coro-http',
 	'luvit/querystring',
