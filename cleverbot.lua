@@ -5,8 +5,6 @@ homepage = 'https://github.com/Kogiku/cleverbot_luvit'
 description = 'Simple CleverBot API Wrapper for Luvit.'
 dependencies = {
 	'creationix/coro-http',
-	'luvit/querystring',
-	'luvit/json'
 }
 tags = {'cleverbot', 'api'}
 license = 'MIT'
