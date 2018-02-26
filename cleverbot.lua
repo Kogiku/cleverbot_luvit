@@ -1,8 +1,8 @@
 --[[lit-meta
 name = 'Kogiku/cleverbot'
-version = '1.0.1'
+version = '1.0.2'
 homepage = 'https://github.com/Kogiku/cleverbot_luvit'
-description = 'Simple implementation of the CleverBot API for Luvit.'
+description = 'Simple CleverBot API Wrapper for Luvit.'
 dependencies = {
 	'creationix/coro-http',
 	'luvit/querystring',
@@ -13,11 +13,18 @@ license = 'MIT'
 author = 'Kogiku'
 ]]
 
--- API key: https://www.cleverbot.com/api/
-
 local http = require('coro-http')
 local urlencode = require('querystring').urlencode
 local JSON = require('json')
+
+local errors = {
+	['err'] = '!! CleverBot error ',
+	['401'] = ' : Unauthorised due to missing or invalid API key',
+	['404'] = ' : API not found',
+	['413'] = ' : Request too large, please limit to 64Kb',
+	['502'] = ' : Unable to get reply from API server, please contact Cleverbot Support',
+	['503'] = ' : Too many requests from a single IP address or API key',
+}
 
 local cleverbot = {}
 cleverbot.__index = cleverbot
@@ -52,13 +59,20 @@ function cleverbot.talk(text, apiKey, cStateBool)
 			CS:setCState('')
 		else CS:setCState(json.cs) end
 		return json.output
+	elseif head.code == 401 then
+		return errors.err..head.code..errors['401']
+	elseif head.code == 404 then
+		return errors.err..head.code..errors['404']
+	elseif head.code == 413 or head.code == 414 then
+		return errors.err..head.code..errors['413']
+	elseif head.code == 502 or head.code == 504 then
+		return errors.err..head.code..errors['502']
+	elseif head.code == 503 then
+		return errors.err..head.code..errors['503']
 	elseif head.code ~= nil then
-		local errcode = '!! CleverBot error: '..head.code
-		return errcode
+		return errors.err..head.code
 	else
-		local nilerr = '!! CleverBot error: unknown'
-		return nilerr
+		return errors.err..' : unknown'	
 	end
 end
-
 return cleverbot
