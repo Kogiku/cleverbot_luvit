@@ -1,6 +1,8 @@
 # cleverbot_luvit
 
-Useage example:
+``lit install Kogiku/cleverbot``
+
+Usage example:
 ```lua
 local cb = require('cleverbot')
 local cbKey = '<API_KEY_HERE>'
