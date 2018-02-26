@@ -75,4 +75,5 @@ function cleverbot.talk(text, apiKey, cStateBool)
 		return errors.err..' : unknown'	
 	end
 end
+
 return cleverbot
