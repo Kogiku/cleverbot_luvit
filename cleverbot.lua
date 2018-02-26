@@ -22,7 +22,7 @@ local errors = {
 	['401'] = ' : Unauthorised due to missing or invalid API key',
 	['404'] = ' : API not found',
 	['413'] = ' : Request too large, please limit to 64Kb',
-	['502'] = ' : Unable to get reply from API server, please contact Cleverbot Support',
+	['502'] = ' : Unable to get reply from API server, please contact CleverBot Support',
 	['503'] = ' : Too many requests from a single IP address or API key',
 }
 
@@ -41,7 +41,7 @@ function cleverbot.getCState(self) return self.cState end
 cState = cleverbot.newCState('')
 
 function cleverbot.buildURL(text, apiKey)
-	local URL_base = 'http://www.cleverbot.com/getreply?key=%s'
+	local URL_base = 'http://www.cleverbot.com/getreply?wrapper=cleverbot_luvit&key=%s'
 	local URL_input = '&input=%s'
 	local URL_cState = "&cs=%s"
 	local CS = cState
