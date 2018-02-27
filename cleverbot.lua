@@ -49,10 +49,10 @@ function cleverbot.buildURL(text, apiKey)
 end
 
 function cleverbot.talk(text, apiKey, cStateBool)
-	local head,body = http.request('GET', cleverbot.buildURL(text, apiKey))
+	local head, body = http.request('GET', cleverbot.buildURL(text, apiKey))
+	local json = JSON.parse(body)
+	local CS = cState
 	if head.code == 200 then
-		local json = JSON.parse(body)
-		local CS = cState
 		if cStateBool == false then
 			CS:setCState('')
 		else CS:setCState(json.cs) end
