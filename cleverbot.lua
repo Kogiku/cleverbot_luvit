@@ -67,11 +67,9 @@ function cleverbot.talk(text, apiKey, cStateBool)
 		return errors.err..head.code..errors['502']
 	elseif head.code == 503 then
 		return errors.err..head.code..errors['503']
-	elseif head.code ~= nil then
+	elseif head.code then
 		return errors.err..head.code
-	else
-		return errors.err..' : unknown'	
-	end
+	else return errors.err..' : unknown' end
 end
 
 return cleverbot
