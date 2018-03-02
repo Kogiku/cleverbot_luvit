@@ -1,6 +1,6 @@
 --[[lit-meta
 name = 'Kogiku/cleverbot'
-version = '1.0.2'
+version = '1.0.3'
 homepage = 'https://github.com/Kogiku/cleverbot_luvit'
 description = 'Simple CleverBot API Wrapper for Luvit.'
 dependencies = {
